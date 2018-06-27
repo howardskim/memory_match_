@@ -1,16 +1,65 @@
 $(document).ready(doThisWhenReady);
-// var imageArray = ['dva.png', 'genji.png', 'hanzo.png', 'junkrat.png', 'mercy.png', 'pharah.png', 'reaper.png', 'roadhog.png', 'soldier.png'];;;
-var imageArray = ['dva.png', 'genji.png']
+//testinggggggggggggggggggggggggggggggggggggggggg//
+var imageArray = ['dva.png', 'genji.png', 'hanzo.png', 'junkrat.png', 'mercy.png', 'pharah.png', 'reaper.png', 'roadhog.png', 'soldier.png'];;;
+// var imageArray = ['dva.png', 'genji.png', 'reaper.png']
+var first_card_clicked = null;
+var second_card_clicked = null;
+var total_possible_matches = 2;
+var match_counter = 0;
+
 function doThisWhenReady(){
     var arrayWithDoublePictures = doubleImage(imageArray);
     var randomArray = randomizer(arrayWithDoublePictures)
     appendImages(randomArray);
     eventHandler();
 }
-
 function eventHandler(){
-    $('.front').on('click', hideCard)
+    $('.card').on('click', whenACardIsClicked)
+};
+function flipCardsBack(){
+    $(first_card_clicked).find(".front").removeClass('hidden');
+    $(second_card_clicked).find(".front").removeClass('hidden');
+    first_card_clicked = null;
+    second_card_clicked = null;
+    // $('.card').on('click', whenTheFrontCardIsClicked);
 }
+function whenACardIsClicked() {
+
+    //if the character card is revealed and the logo becomes hidden, break out of the function
+    if ($(this).find('.front').hasClass('hidden')) { 
+        console.log('hit')
+        return;
+    }
+    // if (first_card_clicked == this) { //prevents you from 'using' the same card more than once
+    //     console.log("you already picked this card as your first card");
+    //     return;
+    // }
+
+    if (first_card_clicked !== null && second_card_clicked !== null){
+        return;
+    }
+    if(first_card_clicked === null){
+        first_card_clicked = this;
+        $(first_card_clicked).find(".front").addClass('hidden');
+        
+    } else { 
+        second_card_clicked = this;
+        // $('.card').off('click');
+        $(second_card_clicked).find(".front").addClass('hidden');
+        var firstCardImageURL = $(first_card_clicked).find('.back').css('background-image');
+        var secondCardImageURL = $(second_card_clicked).find('.back').css('background-image');
+        if(firstCardImageURL === secondCardImageURL){ // if the cards ARE A MATCH
+            match_counter++;
+            first_card_clicked = null;
+            second_card_clicked = null;
+        } else { // if the cards are NOT a match
+            setTimeout(flipCardsBack, 2000);
+            // first_card_clicked = null;
+            // second_card_clicked = null;
+        }
+
+    }
+};
 
 function appendImages(array){
     for(var i = 0; i < array.length; i++){
@@ -44,7 +93,6 @@ function appendImages(array){
         // divWithBackClass.append(imageElement);
         // divWithFrontClass.append(frontImageElement)
         newDiv.append(divWithFrontClass, divWithBackClass);
-        // console.log(newDiv)
         $('.rowOne').append(newDiv);
     };
 }
@@ -67,8 +115,4 @@ function randomizer(array){
         //splice affects the original array and returns you an item in AN ARRAY!!!
     }
     return randomArray
-}
-function hideCard(){
-    $(this).addClass('hidden');
-    console.log('this:', this)
 }
