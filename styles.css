@@ -7,6 +7,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: overwatch-italic;
+    color: #f3c026;
 }
 
 * {
@@ -88,7 +90,7 @@ body {
 
 .statsArea {
     border: 1px solid blue;
-    width: 13%;
+    width: 19%;
     height: 55rem;
 }
 
@@ -105,6 +107,12 @@ body {
     position: relative;
 }
 
+/* .card:hover {
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+} */
+
 .rowOne {
     width: 100%;
     display: flex;
@@ -112,18 +120,14 @@ body {
     flex-flow: row wrap;
 }
 
-.back {
-    /* height: 100%;
-    width: 100%;
-    background-position: center;
-    background-size: 79%;
-    background-repeat: no-repeat;
-    position: absolute;
-    z-index: -1; */
+.showCharactersFace {
+    display: none;
+}
+
+.front {
     height: 100%;
     width: 100%;
     background-position: center;
-    /* background-size: 79%; */
     background-repeat: no-repeat;
     background-size: 80%;
     position: absolute;
@@ -133,25 +137,31 @@ body {
     align-items: center;
 }
 
-.front {
+.back {
     height: 100%;
     width: 100%;
     position: absolute;
-    z-index: 9999;
+    /* z-index: 9999; */
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
 
-.front img {
-    width: 100%;
-}
-
 .back img {
     width: 100%;
 }
 
-.hidden{
-    display: none;
+.front img {
+    width: 100%;
+}
+
+.statsArea div {
+    font-size: 3em;
+    /* text-align: center; */
+}
+
+.resetButton{
+    height: 3rem;
+    width: 5rem;
 }
