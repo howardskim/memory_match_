@@ -1,55 +1,55 @@
 $(document).ready(doThisWhenReady);
 var imageArray = [{
         character: "dva",
-        winGif: 'images2/dva2.gif',
+        winGif: 'images/dva2.gif',
         url: 'dva.png',
         sound: 'dva.mp3'
     },
     {
         character: "genji",
-        winGif: 'images2/genji.gif',
+        winGif: 'images/genji.gif',
         url: 'genji.png',
         sound: 'genji.mp3'
     },
     {
         character: "hanzo",
-        winGif: 'images2/hanzo.gif',
+        winGif: 'images/hanzo.gif',
         url: 'hanzo.png',
         sound: 'hanzo.mp3'
     },
     {
         character: "junkrat",
-        winGif: 'images2/junkrat.gif',
+        winGif: 'images/junkrat.gif',
         url: 'junkrat.png',
         sound: 'junkrat.mp3'
     },
     {
         character: "mercy",
-        winGif: 'images2/mercy.gif',
+        winGif: 'images/mercy.gif',
         url: 'mercy.png',
         sound: 'mercy.mp3'
     },
     {
         character: "pharah",
-        winGif: 'images2/pharah.gif',
+        winGif: 'images/pharah.gif',
         url: 'pharah.png',
         sound: 'pharah.mp3'
     },
     {
         character: "reaper",
-        winGif: 'images2/reaper.gif',
+        winGif: 'images/reaper.gif',
         url: 'reaper.png',
         sound: 'reaper.mp3'
     },
     {
         character: "roadhog",
-        winGif: 'images2/roadhog.gif',
+        winGif: 'images/roadhog.gif',
         url: 'roadhog.png',
         sound: 'roadhog.mp3'
     },
     {
         character: "soldier",
-        winGif: 'images2/soldier.gif',
+        winGif: 'images/soldier.gif',
         url: 'soldier.png',
         sound: 'soldier.mp3'
     },
@@ -67,11 +67,12 @@ var times_played = 0;
 var canIClick = true;
 
 function doThisWhenReady() {
+    // win();
     var arrayWithDoublePictures = doubleImage(imageArray);
     var randomArray = randomizer(arrayWithDoublePictures)
     appendImages(randomArray);
     $('.card').on('click', whenACardIsClicked)
-    $('.firstResetButton').on('click', resetGame)
+    $('.modalResetButton').on('click', resetGame)
     $('.resetButton').on('click', resetGame);
     startStats();
     $(this).on('click', function (event) {
@@ -105,8 +106,9 @@ function display_stats() {
 
 
 function resetGame() {
+    canIClick = true;
     startStats();
-    $('.rowOne').empty();
+    $('.cardArea').empty();
     var arrayWithDoublePictures = doubleImage(imageArray);
     var randomArray = randomizer(arrayWithDoublePictures)
     appendImages(randomArray);
@@ -118,18 +120,12 @@ function resetGame() {
     attempts = 0;
     match_counter = 0;
     $('.timesPlayed').text(`# of games played: ${times_played}`);
-    canIClick = true;
     $('.card').on('click', whenACardIsClicked)
     $('.card div').removeClass('showCharactersFace');
     var characterImageArea = $('.characterArea');
     characterImageArea.attr('src', '');
     var modal = $('.modal');
     modal.css('display', 'none');
-
-    
-    
-
-
 }
 
 function flipCardsBack() {
@@ -146,11 +142,16 @@ function playSound(mp3) {
 }
 
 function win(){
+    var accuracyPercentage = Math.round((matches / attempts) * 100);
     var modal = $('.modal');
-    modal.css('display', 'block')
+    modal.css('display', 'block');
+    var modalContent = $('.modal-content');
+    modalContent.addClass('winBackground');
+    $('.modal-content h1').text(`Congratulations! Your accuracy was at ${accuracyPercentage}%`);
+    
 }
 function whenACardIsClicked() {
-    debugger;
+    // debugger;
     var characterImageArea = $('.characterArea');
     if ($(this).find('.back').hasClass('showCharactersFace')) {
         return;
@@ -190,8 +191,6 @@ function whenACardIsClicked() {
             display_stats();
         }
     }
-    // accuracy = Math.round(matches/attempts) * 100
-    // display_stats();
 };
 
 function appendImages(array) {
@@ -208,7 +207,7 @@ function appendImages(array) {
         var divWithFrontClass = $('<div>', {
             class: 'back',
             attr: {
-                style: `background-image: url('images/frontcard.jpg')`
+                style: `background-image: url('images/backofthecard.jpg')`
             }
         });
 
@@ -221,7 +220,7 @@ function appendImages(array) {
             }
         });
         newDiv.append(divWithFrontClass, divWithBackClass);
-        $('.rowOne').append(newDiv);
+        $('.cardArea').append(newDiv);
     };
 }
 
