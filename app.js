@@ -82,6 +82,11 @@ function doThisWhenReady() {
 
 }
 
+// function testingFlip(){
+//     $(first_card_clicked).addClass('flipCard')
+    
+// }
+
 function startStats(){
     times_played++;
     attempts = 0;
@@ -152,7 +157,6 @@ function win(){
     
 }
 function whenACardIsClicked() {
-    // debugger;
     var characterImageArea = $('.characterArea');
     if ($(this).find('.back').hasClass('showCharactersFace')) {
         return;
