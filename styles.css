@@ -20,7 +20,9 @@
 }
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./images/wallpaper4.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./images/wallpaper4.jpg);
+    /* background: url(./images/wallpaper4.jpg); */
+
     /* background-color: white; */
     ;
     /* background: url(./images/wallpaper1.png); */
@@ -113,7 +115,7 @@ body {
     width: 16%;
     height: 33%;
     /* margin: .5em .1em; */
-    /* margin-bottom: 1em; */
+    margin-bottom: 1%;
     position: relative;
 }
 
@@ -153,7 +155,7 @@ body {
     height: 103%;
     width: 100%;
     position: absolute;
-    opacity: 0.5;
+    /* opacity: 0.5; */
     /* z-index: 9999; */
     background-size: 100%;
     background-repeat: no-repeat;

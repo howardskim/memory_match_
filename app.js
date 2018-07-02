@@ -53,7 +53,7 @@ var imageArray = [{
         url: 'soldier.png',
         sound: 'soldier.mp3'
     },
-]
+] 
 
 //Global Variables//
 var first_card_clicked = null;
@@ -67,7 +67,6 @@ var times_played = 0;
 var canIClick = true;
 
 function doThisWhenReady() {
-    // win();
     var arrayWithDoublePictures = doubleImage(imageArray);
     var randomArray = randomizer(arrayWithDoublePictures)
     appendImages(randomArray);
@@ -94,6 +93,8 @@ function startStats(){
     accuracyDiv.text(0 + ' %');
 
 }
+
+
 function display_stats() {
     var gamesPlayedDiv = $('.timesPlayed p');
     gamesPlayedDiv.text(`# of games played: ${times_played}`);  
@@ -147,7 +148,7 @@ function win(){
     modal.css('display', 'block');
     var modalContent = $('.modal-content');
     modalContent.addClass('winBackground');
-    $('.modal-content h1').text(`Congratulations! Your accuracy was at ${accuracyPercentage}%`);
+    $('.modal-content h1').text(`Congratulations! Your accuracy was around ${accuracyPercentage}%`);
     
 }
 function whenACardIsClicked() {
@@ -234,10 +235,9 @@ function doubleImage(array) {
 
 function randomizer(array) {
     var randomArray = [];
-    var copiedArray = array.slice(0);
-    while (copiedArray.length > 0) {
-        var randomIndex = Math.floor(Math.random() * copiedArray.length);
-        randomArray.push(copiedArray.splice(randomIndex, 1)[0]);
+    while (array.length > 0) {
+        var randomIndex = Math.floor(Math.random() * array.length);
+        randomArray.push(array.splice(randomIndex, 1)[0]);
     }
     return randomArray
 }
