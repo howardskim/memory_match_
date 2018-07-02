@@ -29,7 +29,7 @@ body {
     width: 100vw;
 }
 
-.entireContainer{
+.entireContainer {
     height: 100%;
 }
 
@@ -108,22 +108,26 @@ body {
     height: 33%;
     margin-bottom: 1%;
     position: relative;
-
     transition: transform 1s;
     transform-style: preserve-3d;
 
+    /* prototype */
+    /* width: 16%;
+    height: 33%;
+    margin-bottom: 1%;
+    position: relative;
+    transition: 0.6s;
+    transform-style: preserve-3d; */
 }
 
 .flipCard {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
 }
 
-
-/* .back:hover {
-    -webkit-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    transform: scale(1.3);
-} */
+.back:hover {
+    transform: scale(1.2);
+    /* transform: rotateZ(-30deg); */
+}
 
 .cardArea {
     width: 100%;
@@ -131,11 +135,11 @@ body {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
+    /* perspective: 1000px; */
 }
 
 .showCharactersFace {
     display: none;
-
 }
 
 .front {
@@ -145,14 +149,24 @@ body {
     background-repeat: no-repeat;
     background-size: 77%;
     position: absolute;
-    z-index: -1;
+    /* z-index: -1; */
     display: flex;
     justify-content: center;
     align-items: center;
-
-
     /* transform: rotateY(0deg) */
-    
+
+
+/* prototype */
+    /* height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 77%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg); */
 }
 
 .back {
@@ -160,18 +174,30 @@ body {
     width: 100%;
     position: absolute;
     /* opacity: 0.5; */
-    /* z-index: 9999; */
+    z-index: 9999;
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    transform: rotateY(0deg)
+    /* transform: rotateY(0deg);
+    transform: rotateY(180deg); */
+    z-index: 2;
 
-
-    /* transform: rotateY(180deg); */
-    /* z-index: 2; */
-
+    /* prototype */
+    /* height: 103%;
+    width: 100%;
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transform: rotateY(0deg); */
 }
+
+/* .front,
+.back {
+    backface-visibility: hidden;
+} */
 
 .back img {
     width: 100%;
@@ -209,7 +235,8 @@ body {
     cursor: pointer;
     border: 3px solid darkred;
 }
-.characterArea{
+
+.characterArea {
     /* border: 3px solid red; */
     margin-top: 1em;
     width: 100%;
@@ -226,7 +253,6 @@ body {
     /* overflow: auto; */
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
-
 }
 
 /* Modal Content/Box */
@@ -245,21 +271,30 @@ body {
     animation: slide 0.1s ease-in-out;
 }
 
-@keyframes slide{
-    0% {transform: translateX(-50%)}
-    25% {transform: translateX(-40%)}
-    50% {transform: translateX(-20%)}
-    75% {transform: translateX(-10%)}
-    100% {transform: translateX(0)}
+@keyframes slide {
+    0% {
+        transform: translateX(-50%)
+    }
+    25% {
+        transform: translateX(-40%)
+    }
+    50% {
+        transform: translateX(-20%)
+    }
+    75% {
+        transform: translateX(-10%)
+    }
+    100% {
+        transform: translateX(0)
+    }
 }
 
-
-.modal-content h1{
+.modal-content h1 {
     font-size: 200%;
     padding-bottom: 10%;
-    
 }
-.modalResetButton{
+
+.modalResetButton {
     position: relative;
     height: 12%;
     width: 12%;
@@ -267,14 +302,16 @@ body {
     border-radius: 7%;
     background-color: darkred;
 }
-.modalResetButton:hover{
+
+.modalResetButton:hover {
     cursor: pointer;
 }
-.winBackground{
-  background: url(./images/wallpaper2.png);
-  -webkit-filter: brightness(80%);
-  background-repeat: no-repeat;
-  /* background-attachment: fixed; */
-  background-size: 100%;
-  background-position: top;
-} 
+
+.winBackground {
+    background: url(./images/wallpaper2.png);
+    -webkit-filter: brightness(80%);
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-size: 100%;
+    background-position: top;
+}

@@ -83,7 +83,7 @@ function doThisWhenReady() {
 }
 
 // function testingFlip(){
-//     $(first_card_clicked).addClass('flipCard')
+//     $(first_card_clicked).toggleClass('flipCard')
     
 // }
 
@@ -167,6 +167,7 @@ function whenACardIsClicked() {
     if (first_card_clicked === null) {
         first_card_clicked = this;
         $(first_card_clicked).find(".back").addClass('showCharactersFace');
+
         return;
     } else {
         second_card_clicked = this;
@@ -198,6 +199,7 @@ function whenACardIsClicked() {
     }
 };
 
+
 function appendImages(array) {
     for (var i = 0; i < array.length; i++) {
         // Example: <div class="card" sound="dva.mp3"></div> //
@@ -224,7 +226,7 @@ function appendImages(array) {
                 style: `background-image: url('images/${array[i].url}')`
             }
         });
-        newDiv.append(divWithFrontClass, divWithBackClass);
+        newDiv.append(divWithBackClass, divWithFrontClass);
         $('.cardArea').append(newDiv);
     };
 }
