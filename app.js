@@ -53,9 +53,10 @@ var imageArray = [{
         url: 'soldier.png',
         sound: 'soldier.mp3'
     },
-] 
+]
 
 //Global Variables//
+
 var first_card_clicked = null;
 var second_card_clicked = null;
 var total_possible_matches = 9;
@@ -70,6 +71,11 @@ function doThisWhenReady() {
     var arrayWithDoublePictures = doubleImage(imageArray);
     var randomArray = randomizer(arrayWithDoublePictures)
     appendImages(randomArray);
+    applyEventHandlers();
+
+}
+
+function applyEventHandlers() {
     $('.card').on('click', whenACardIsClicked)
     $('.modalResetButton').on('click', resetGame)
     $('.resetButton').on('click', resetGame);
@@ -79,19 +85,13 @@ function doThisWhenReady() {
             $(myModal).css('display', 'none');
         }
     })
-
 }
 
-// function testingFlip(){
-//     $(first_card_clicked).toggleClass('flipCard')
-    
-// }
-
-function startStats(){
+function startStats() {
     times_played++;
     attempts = 0;
     var gamesPlayedDiv = $('.timesPlayed p');
-    gamesPlayedDiv.text(`# of games played: ${times_played}`); 
+    gamesPlayedDiv.text(`# of games played: ${times_played}`);
     var numberOfTriesDiv = $('.numberOfTries p');
     numberOfTriesDiv.text(`number of tries: ${attempts}`);
     var accuracyDiv = $('.accuracy');
@@ -102,7 +102,7 @@ function startStats(){
 
 function display_stats() {
     var gamesPlayedDiv = $('.timesPlayed p');
-    gamesPlayedDiv.text(`# of games played: ${times_played}`);  
+    gamesPlayedDiv.text(`# of games played: ${times_played}`);
     var numberOfTriesDiv = $('.numberOfTries p');
     numberOfTriesDiv.text(`number of tries: ${attempts}`);
     var accuracyDiv = $('.accuracy');
@@ -147,15 +147,16 @@ function playSound(mp3) {
     audio.play();
 }
 
-function win(){
+function win() {
     var accuracyPercentage = Math.round((matches / attempts) * 100);
     var modal = $('.modal');
     modal.css('display', 'block');
     var modalContent = $('.modal-content');
     modalContent.addClass('winBackground');
     $('.modal-content h1').text(`Congratulations! Your accuracy was around ${accuracyPercentage}%`);
-    
+
 }
+
 function whenACardIsClicked() {
     var characterImageArea = $('.characterArea');
     if ($(this).find('.back').hasClass('showCharactersFace')) {
@@ -167,7 +168,6 @@ function whenACardIsClicked() {
     if (first_card_clicked === null) {
         first_card_clicked = this;
         $(first_card_clicked).find(".back").addClass('showCharactersFace');
-
         return;
     } else {
         second_card_clicked = this;
@@ -176,7 +176,7 @@ function whenACardIsClicked() {
         var firstCardImageURL = $(first_card_clicked).find('.front').css('background-image');
         var secondCardImageURL = $(second_card_clicked).find('.front').css('background-image');
         // if the cards ARE A MATCH
-        if (firstCardImageURL === secondCardImageURL) { 
+        if (firstCardImageURL === secondCardImageURL) {
             characterImageArea.attr('src', $(first_card_clicked).find('.front').attr('winGif')); // after the src, this is the SECOND parameter
             var characterSound = $(this).attr('sound');
             playSound(characterSound);
