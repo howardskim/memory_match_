@@ -26,12 +26,12 @@ body {
     background-size: cover;
     background-position: 0% 47%;
     height: 100vh;
-    width: 100vw;
+    /* width: 100vw; */
 }
 
 .entireContainer {
-    width: 100%;
-    height: 100%;
+    /* width: 100%; */
+    height: 86%;
 }
 
 .header {
@@ -39,20 +39,20 @@ body {
     /* height: 17%; */
     display: flex;
     justify-content: space-evenly;
-    position: relative;
+    /* position: relative; */
 }
 
-.gameLogoArea {
+/* .gameLogoArea {
     width: 20%;
     position: relative;
     margin-left: 2rem;
-}
+} */
 
-.gameLogoImage {
+/* .gameLogoImage {
     position: relative;
     height: 10rem;
     opacity: 0.9;
-}
+} */
 
 .header img {
     position: relative;
@@ -61,7 +61,9 @@ body {
     height: 60%;
     -webkit-filter: brightness(100%);
 }
-
+.buttonArea > img{
+    width: 100%;
+}
 .header img:hover {
     -webkit-filter: brightness(200%);
 }
@@ -72,16 +74,17 @@ body {
 }
 
 .gameTitle {
-    position: relative;
-    top: 5%;
+    display: flex;
+    justify-content: flex-end;
     font-family: overwatch-italic;
     font-size: 6vw;
     color: #f3c026;
+    margin-left: 12%;
 }
 
 .mainSection {
     width: 100%;
-    height: 75%;
+    height: 100%;
     display: flex;
     justify-content: space-evenly;
 }
@@ -98,13 +101,14 @@ body {
 }
 
 .card {
-    width: 16%;
-    /* height: 33%; */
-    height: 45%;
+    width: 15%;
+    height: 33%;
+    /* height: 45%; */
     margin-bottom: 1%;
     position: relative;
     transition: transform 1s;
     transform-style: preserve-3d;
+    /* border: 5px solid #f3c026; */
 
 }
 
@@ -118,7 +122,7 @@ body {
 
 .cardArea {
     width: 100%;
-    height: 100%;
+    height: 80%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
@@ -286,4 +290,87 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: top;
+}
+
+@media only screen and (max-width: 500px){
+    .cardArea{
+        height: 50%;
+    }
+    .gameArea{
+        height: 60%;
+    }
+    .card {
+        width: 30%;
+        height: 100%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .mainSection{
+        height: 89%;
+        /* height: 60%; */
+    }
+}
+@media only screen and (max-width: 501px) {
+    .mainSection {
+        height: 89%;
+    }
+    .card {
+        width: 16%;
+        height: 30%;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .cardArea {
+        height: 68%;
+    }
+}
+
+/* @media only screen and (max-height: 688px) {
+    .card{
+        min-height: 150px;
+        min-width: 42%
+    }
+} */
+
+@media (max-height: 688px) and (max-width: 404px) {
+    /* CSS stuff */
+    .card{
+        min-height: 150px;
+        min-width: 42%;
+    }
+}
+
+@media only screen and (max-height: 565px) {
+    .card {
+        height: 36%;
+    }
+}
+
+@media only screen and (max-height: 470px) {
+    .card {
+        height: 48%;
+    }
+}
+
+@media only screen and (max-height: 688px) {
+    .cardArea {
+        width: 90%;
+    }
+}
+@media only screen and (max-height: 621px) {
+    .cardArea {
+        width: 80%;
+    }
+}
+@media only screen and (max-height: 573px) {
+    .cardArea {
+        min-width: 70%;
+    }
+}
+@media only screen and (max-height: 573px) {
+    .gameArea {
+        width: 60%;
+    }
 }

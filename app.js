@@ -214,7 +214,7 @@ function appendImages(array) {
         var divWithFrontClass = $('<div>', {
             class: 'back',
             attr: {
-                style: `background-image: url('images/backofthecard.jpg')`
+                style: `background-image: url('images/heroesbackofcard.jpg')`
             }
         });
 
