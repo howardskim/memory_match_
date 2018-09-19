@@ -30,12 +30,13 @@ body {
 }
 
 .entireContainer {
+    width: 100%;
     height: 100%;
 }
 
 .header {
-    width: 100%;
-    height: 17%;
+    /* width: 100%; */
+    /* height: 17%; */
     display: flex;
     justify-content: space-evenly;
     position: relative;
@@ -74,7 +75,7 @@ body {
     position: relative;
     top: 5%;
     font-family: overwatch-italic;
-    font-size: 7em;
+    font-size: 6vw;
     color: #f3c026;
 }
 
@@ -98,7 +99,8 @@ body {
 
 .card {
     width: 16%;
-    height: 33%;
+    /* height: 33%; */
+    height: 45%;
     margin-bottom: 1%;
     position: relative;
     transition: transform 1s;
@@ -111,7 +113,7 @@ body {
 }
 
 .back:hover {
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
 }
 
 .cardArea {
@@ -156,14 +158,15 @@ body {
 
 .back {
     /* opacity: 0.5; */
-    height: 103%;
+    /* height: 103%; */
+    height: 100%;
     width: 100%;
     position: absolute;
     z-index: 9999;
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    /* background-size: contain; */
 
     /* prototype */
     /* height: 103%;
