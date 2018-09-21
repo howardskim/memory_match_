@@ -92,3 +92,7 @@ body {
     background-size: 100%;
     background-position: top;
 }
+.characterArea{
+    /* border: 1px solid blue; */
+    width: 350px;
+}
