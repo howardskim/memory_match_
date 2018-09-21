@@ -26,33 +26,16 @@ body {
     background-size: cover;
     background-position: 0% 47%;
     height: 100vh;
-    /* width: 100vw; */
 }
 
 .entireContainer {
-    /* width: 100%; */
     height: 86%;
 }
 
 .header {
-    /* width: 100%; */
-    /* height: 17%; */
     display: flex;
     justify-content: space-evenly;
-    /* position: relative; */
 }
-
-/* .gameLogoArea {
-    width: 20%;
-    position: relative;
-    margin-left: 2rem;
-} */
-
-/* .gameLogoImage {
-    position: relative;
-    height: 10rem;
-    opacity: 0.9;
-} */
 
 .header img {
     position: relative;
@@ -103,13 +86,10 @@ body {
 .card {
     width: 15%;
     height: 33%;
-    /* height: 45%; */
     margin-bottom: 1%;
     position: relative;
     transition: transform 1s;
     transform-style: preserve-3d;
-    /* border: 5px solid #f3c026; */
-
 }
 
 .flipCard {
@@ -126,7 +106,6 @@ body {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    /* perspective: 1000px; */
 }
 
 .showCharactersFace {
@@ -140,29 +119,12 @@ body {
     background-repeat: no-repeat;
     background-size: 77%;
     position: absolute;
-    /* z-index: -1; */
     display: flex;
     justify-content: center;
     align-items: center;
-    /* transform: rotateY(0deg) */
-
-
-/* prototype */
-    /* height: 100%;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 77%;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: rotateY(180deg); */
 }
 
 .back {
-    /* opacity: 0.5; */
-    /* height: 103%; */
     height: 100%;
     width: 100%;
     position: absolute;
@@ -170,17 +132,6 @@ body {
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    /* background-size: contain; */
-
-    /* prototype */
-    /* height: 103%;
-    width: 100%;
-    position: absolute;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    transform: rotateY(0deg); */
 }
 
 .back img {
@@ -326,13 +277,6 @@ body {
         height: 68%;
     }
 }
-
-/* @media only screen and (max-height: 688px) {
-    .card{
-        min-height: 150px;
-        min-width: 42%
-    }
-} */
 
 @media (max-height: 688px) and (max-width: 404px) {
     /* CSS stuff */
