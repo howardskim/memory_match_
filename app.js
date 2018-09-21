@@ -130,6 +130,7 @@ function resetGame() {
     $('.card div').removeClass('showCharactersFace');
     var characterImageArea = $('.characterArea');
     characterImageArea.attr('src', '');
+    $('#logoArea').attr('src', 'images/logo3.png')
     var modal = $('.modal');
     modal.css('display', 'none');
 }
