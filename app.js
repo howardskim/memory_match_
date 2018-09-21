@@ -95,7 +95,7 @@ function startStats() {
     var numberOfTriesDiv = $('.numberOfTries p');
     numberOfTriesDiv.text(`number of tries: ${attempts}`);
     var accuracyDiv = $('.accuracy');
-    accuracyDiv.text(0 + ' %');
+    accuracyDiv.text('Accuracy' + ' 0 %');
 
 }
 
@@ -107,7 +107,7 @@ function display_stats() {
     numberOfTriesDiv.text(`number of tries: ${attempts}`);
     var accuracyDiv = $('.accuracy');
     var accuracyPercentage = Math.round((matches / attempts) * 100);
-    accuracyDiv.text(accuracyPercentage + ' %')
+    accuracyDiv.text('Accurary: ' +accuracyPercentage + ' %')
 };
 
 
@@ -157,8 +157,12 @@ function win() {
 
 }
 
+
+
 function whenACardIsClicked() {
+
     var characterImageArea = $('.characterArea');
+    var logoArea = $('#logoArea');
     if ($(this).find('.back').hasClass('showCharactersFace')) {
         return;
     }
@@ -167,17 +171,18 @@ function whenACardIsClicked() {
     }
     if (first_card_clicked === null) {
         first_card_clicked = this;
+        // $(first_card_clicked).addClass('flipCard')
         $(first_card_clicked).find(".back").addClass('showCharactersFace');
         return;
     } else {
         second_card_clicked = this;
         $(second_card_clicked).find(".back").addClass('showCharactersFace');
         canIClick = false;
-        var firstCardImageURL = $(first_card_clicked).find('.front').css('background-image');
-        var secondCardImageURL = $(second_card_clicked).find('.front').css('background-image');
+        var firstCardImageURL = $(first_card_clicked).find('.front').attr('src');
+        var secondCardImageURL = $(second_card_clicked).find('.front').attr('src');
         // if the cards ARE A MATCH
         if (firstCardImageURL === secondCardImageURL) {
-            characterImageArea.attr('src', $(first_card_clicked).find('.front').attr('winGif')); // after the src, this is the SECOND parameter
+            logoArea.attr('src', $(first_card_clicked).find('.front').attr('winGif')); // after the src, this is the SECOND parameter
             var characterSound = $(this).attr('sound');
             playSound(characterSound);
             attempts++;
@@ -211,19 +216,19 @@ function appendImages(array) {
         });
 
         // Example: <div class="back" style="background-image: url('images/frontcard.jpg')"></div>
-        var divWithFrontClass = $('<div>', {
+        var divWithFrontClass = $('<img>', {
             class: 'back',
             attr: {
-                style: `background-image: url('images/heroesbackofcard.jpg')`
+                src: `images/heroesbackofcard.jpg`
             }
         });
 
         // Example: <div class="front" wingif="images2/dva2.gif" style="background-image: url('images/dva.png')"></div>
-        var divWithBackClass = $('<div>', {
+        var divWithBackClass = $('<img>', {
             class: 'front',
             attr: {
                 winGif: array[i].winGif,
-                style: `background-image: url('images/${array[i].url}')`
+                src: `images/${array[i].url}`
             }
         });
         newDiv.append(divWithBackClass, divWithFrontClass);
