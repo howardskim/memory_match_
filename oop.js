@@ -64,7 +64,7 @@ class MemoryMatch {
         ];
         this.first_card_clicked = null;
         this.second_card_clicked = null;
-        this.total_possible_matches = 2;
+        this.total_possible_matches = 9;
         this.match_counter = 0;
         this.matches = 0;
         this.attempts = 0;
