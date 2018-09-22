@@ -7,6 +7,7 @@ game.doThisWhenReady()
 
 class MemoryMatch {
     constructor() {
+        // this.accuracy = null;
         this.imageArray = [{
                 character: "dva",
                 winGif: 'images/dva2.gif',
@@ -64,7 +65,7 @@ class MemoryMatch {
         ];
         this.first_card_clicked = null;
         this.second_card_clicked = null;
-        this.total_possible_matches = 9;
+        this.total_possible_matches = 2;
         this.match_counter = 0;
         this.matches = 0;
         this.attempts = 0;
@@ -115,6 +116,7 @@ class MemoryMatch {
         numberOfTriesDiv.text(`number of tries: ${this.attempts}`);
         var accuracyDiv = $('.accuracy');
         var accuracyPercentage = Math.round((this.matches / this.attempts) * 100);
+        console.log("accuracyPercentage" , accuracyPercentage);
         accuracyDiv.text('Accurary: ' + accuracyPercentage + ' %')
         
     };
@@ -159,7 +161,11 @@ class MemoryMatch {
     }
 
     win() {
-        var accuracyPercentage = Math.round((matches / attempts) * 100);
+        console.log(this.matches);
+        console.log(this.attempts);
+        var accuracyPercentage = Math.round((this.matches / this.attempts) * 100);
+        // debugger;
+        console.log("accuracyPercentage", accuracyPercentage);
         var modal = $('.modal');
         modal.css('display', 'block');
         var modalContent = $('.modal-content');
@@ -201,7 +207,7 @@ class MemoryMatch {
                 this.match_counter++;
                 this.display_stats();
                 if (this.matches === this.total_possible_matches) {
-                    setTimeout(win, 500)
+                    setTimeout(this.win, 500)
 
                 }
                 this.first_card_clicked = null;
