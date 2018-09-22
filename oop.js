@@ -102,7 +102,8 @@ class MemoryMatch {
         var numberOfTriesDiv = $('.numberOfTries p');
         numberOfTriesDiv.text(`number of tries: ${this.attempts}`);
         var accuracyDiv = $('.accuracy');
-        accuracyDiv.text(0 + ' %');
+        accuracyDiv.text('Accuracy' + ' 0 %');
+
 
     }
 
@@ -114,7 +115,8 @@ class MemoryMatch {
         numberOfTriesDiv.text(`number of tries: ${this.attempts}`);
         var accuracyDiv = $('.accuracy');
         var accuracyPercentage = Math.round((this.matches / this.attempts) * 100);
-        accuracyDiv.text(accuracyPercentage + ' %')
+        accuracyDiv.text('Accurary: ' + accuracyPercentage + ' %')
+        
     };
 
 
@@ -137,6 +139,7 @@ class MemoryMatch {
         $('.card div').removeClass('showCharactersFace');
         var characterImageArea = $('.characterArea');
         characterImageArea.attr('src', '');
+        $('#logoArea').attr('src', 'images/logo3.png')
         var modal = $('.modal');
         modal.css('display', 'none');
     }
@@ -167,6 +170,8 @@ class MemoryMatch {
 
     whenACardIsClicked() {
         var characterImageArea = $('.characterArea');
+        var logoArea = $('#logoArea');
+        
         if ($(event.currentTarget).find('.back').hasClass('showCharactersFace')) {
             return;
         }
@@ -183,11 +188,11 @@ class MemoryMatch {
             this.second_card_clicked = $(event.currentTarget); // changed from this
             $(this.second_card_clicked).find(".back").addClass('showCharactersFace');
             this.canIClick = false;
-            var firstCardImageURL = $(this.first_card_clicked).find('.front').css('background-image');
-            var secondCardImageURL = $(this.second_card_clicked).find('.front').css('background-image');
+            var firstCardImageURL = $(this.first_card_clicked).find('.front').attr('src');
+            var secondCardImageURL = $(this.second_card_clicked).find('.front').attr('src');
             // if the cards ARE A MATCH
             if (firstCardImageURL === secondCardImageURL) {
-                characterImageArea.attr('src', $(this.first_card_clicked).find('.front').attr('winGif')); // after the src, this is the SECOND parameter
+                logoArea.attr('src', $(this.first_card_clicked).find('.front').attr('winGif')); // after the src, this is the SECOND parameter
                 // var characterSound = $(this).attr('sound');
                 var characterSound = $(event.currentTarget).attr('sound');
                 this.playSound(characterSound);
@@ -221,19 +226,19 @@ class MemoryMatch {
             });
 
             // Example: <div class="back" style="background-image: url('images/frontcard.jpg')"></div>
-            var divWithFrontClass = $('<div>', {
+            var divWithFrontClass = $('<img>', {
                 class: 'back',
                 attr: {
-                    style: `background-image: url('images/backofthecard.jpg')`
+                    src: `images/heroesbackofcard.jpg`
                 }
             });
 
             // Example: <div class="front" wingif="images2/dva2.gif" style="background-image: url('images/dva.png')"></div>
-            var divWithBackClass = $('<div>', {
+            var divWithBackClass = $('<img>', {
                 class: 'front',
                 attr: {
                     winGif: array[i].winGif,
-                    style: `background-image: url('images/${array[i].url}')`
+                    src: `images/${array[i].url}`
                 }
             });
             newDiv.append(divWithBackClass, divWithFrontClass);
