@@ -214,7 +214,7 @@ class MemoryMatch {
                 this.second_card_clicked = null;
                 this.canIClick = true;
             } else { // if the cards are NOT a match
-                setTimeout(this.flipCardsBack.bind(this), 2000);
+                setTimeout(this.flipCardsBack.bind(this), 1000);
                 this.attempts++;
                 this.display_stats();
             }
